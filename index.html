@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="blue">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroFlow | Daily Water Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Theme Selector -->
+    <div class="theme-selector glass">
+        <button class="theme-btn blue" onclick="setTheme('blue')" title="Ocean Blue"></button>
+        <button class="theme-btn green" onclick="setTheme('green')" title="Forest Green"></button>
+        <button class="theme-btn red" onclick="setTheme('red')" title="Sunset Red"></button>
+        <button class="theme-btn yellow" onclick="setTheme('yellow')" title="Golden Hour"></button>
+    </div>
+
+    <div class="container glass">
+        <header>
+            <h1><i class="fa-solid fa-droplet"></i> HydroFlow</h1>
+            <p class="subtitle">Stay hydrated, stay healthy.</p>
+        </header>
+
+        <!-- Circular Progress -->
+        <div class="progress-section">
+            <div class="progress-circle">
+                <svg>
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70" id="progressRing"></circle>
+                </svg>
+                <div class="percentage">
+                    <span id="percentageText">0%</span>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <p>Drank</p>
+                    <h3><span id="drank">0</span> <small>ml</small></h3>
+                </div>
+                <div class="stat-item">
+                    <p>Remaining</p>
+                    <h3><span id="remaining">2000</span> <small>ml</small></h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goal Setting -->
+        <div class="input-group">
+            <label for="goalInput">Daily Goal (ml)</label>
+            <div class="row">
+                <input type="number" id="goalInput" placeholder="e.g. 2500">
+                <button id="setGoal" class="btn-secondary">Set</button>
+            </div>
+        </div>
+
+        <!-- Add Water Section -->
+        <div class="action-section">
+            <div class="input-group">
+                <label for="reason">Why are you drinking?</label>
+                <div class="select-wrapper">
+                    <select id="reason">
+                        <option value="" disabled selected>Select a reason...</option>
+                        <option value="Feeling Hot 🔥">Feeling Hot 🔥</option>
+                        <option value="After Food 🍽️">After Food 🍽️</option>
+                        <option value="After Work 🏃">After Work 🏃</option>
+                        <option value="Headache / Tired 🤕">Headache / Tired 🤕</option>
+                        <option value="Reminder ⏰">Reminder ⏰</option>
+                        <option value="Other ✍️">Other ✍️</option>
+                    </select>
+                </div>
+            </div>
+            <button id="addWater" class="btn-primary pulse-anim">
+                <i class="fa-solid fa-plus"></i> Add Water (+250 ml)
+            </button>
+        </div>
+
+        <!-- History -->
+        <div class="history-section">
+            <div class="history-header">
+                <h3>Today's Log</h3>
+                <button id="reset" class="btn-text">Reset Day</button>
+            </div>
+            <ul id="history" class="history-list">
+                <!-- Log items will appear here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
